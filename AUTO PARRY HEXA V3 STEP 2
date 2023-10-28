@@ -1,0 +1,71 @@
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Window = Library.CreateLib("Hexa exploit", "Ocean")
+local Tab = Window:NewTab("Autoparry")
+local Section = Tab:NewSection("Hexa autoparry")
+Section:NewButton("Fps Boost", "ButtonInfo", function()
+-- This is a simplified example, and the actual code will depend on the game or software you're targeting.
+
+-- Reduce graphics quality settings
+function reduceGraphicsQuality()
+    -- Set lower graphics settings
+    SetGraphicsQuality("Low")
+end
+
+-- Disable unnecessary graphical effects
+function disableUnnecessaryEffects()
+    -- Disable post-processing effects
+    DisablePostProcessing()
+    
+    -- Disable shadows
+    DisableShadows()
+    
+    -- Reduce texture quality
+    SetTextureQuality("Low")
+end
+
+-- Adjust render distance
+function adjustRenderDistance()
+    -- Reduce render distance
+    SetRenderDistance(1000) -- Adjust the value as needed
+end
+
+-- Main function to boost FPS
+function boostFPS()
+    reduceGraphicsQuality()
+    disableUnnecessaryEffects()
+    adjustRenderDistance()
+end
+
+-- Call the main FPS boost function
+boostFPS()
+    print("Clicked")
+end)
+Section:NewButton("Autoparry", "ButtonInfo", function()
+    getgenv().config = getgenv().config or {
+        hit_time = 0.5, -- // recommended 0.25 to 0.75
+        mode = 'Always', -- // Hold , Toggle , Always
+        deflect_type = 'Remote', -- // Key Press , Remote
+        notifications = false,
+        keybind = Enum.KeyCode.V
+    }
+    
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3ABlade%20Ball%20Parry%20V4.0.0",true))()
+    print("Clicked")
+    
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Script by Sertonex ",
+        Text = "Press V for spam",
+        Duration = 5
+    })
+end)
+
+Section:NewButton("Hold block for spam", "ButtonInfo", function()
+
+end)
+getgenv().SpamSpeed = 5 -- 1-25
+
+if not getgenv().exeSpam then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/Toggle%20Block%20Spam",true))()
+end
+
+getgenv().exeSpam = true
